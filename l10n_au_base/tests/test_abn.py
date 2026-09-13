@@ -27,6 +27,18 @@ class TestAbn(TransactionCase):
         self.assertFalse(abn_checksum_ok("123"))
         self.assertFalse(abn_checksum_ok("n/a"))
 
+    def test_unicode_digits_are_invalid_input_not_an_exception(self):
+        # str.isdigit() accepts superscript and circled digits, which int()
+        # rejects, so a pasted value used to raise out of the predicate.
+        for value in ("²" * 11, "①" * 11, "5182475355²"):
+            with self.subTest(value=value):
+                self.assertFalse(abn_checksum_ok(value))
+                with self.assertRaises(ValueError):
+                    compact_abn(value)
+        # The valid control still passes, and still formats.
+        self.assertTrue(abn_checksum_ok("51824753556"))
+        self.assertEqual(format_abn("51824753556"), "51 824 753 556")
+
     def test_empty_is_not_valid(self):
         self.assertEqual(compact_abn(""), "")
         self.assertEqual(format_abn(None), "")

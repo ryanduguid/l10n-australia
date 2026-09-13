@@ -27,7 +27,10 @@ def compact_abn(value: str | None) -> str:
     if not text:
         return ""
     text = text.removeprefix("AU")
-    if len(text) != 11 or not text.isdigit():
+    # isdigit() alone accepts superscript and circled digits, which int()
+    # then rejects. An ABN is 11 ASCII digits, so a pasted "5182475355²"
+    # is invalid input rather than a number to convert.
+    if len(text) != 11 or not (text.isascii() and text.isdigit()):
         raise ValueError("ABN must be 11 digits (optional AU prefix and spaces).")
     return text
 
@@ -44,11 +47,14 @@ def abn_checksum_ok(value: str | None) -> bool:
     """True when the ABR weighting sums to a multiple of 89."""
     try:
         digits = compact_abn(value)
+        if not digits:
+            return False
+        # Inside the handler as well: a conversion failure here is invalid
+        # input, and the predicate answers False rather than raising into
+        # its caller.
+        numbers = [int(d) for d in digits]
     except ValueError:
         return False
-    if not digits:
-        return False
-    numbers = [int(d) for d in digits]
     numbers[0] -= 1
     total = sum(weight * digit for weight, digit in zip(_WEIGHTS, numbers, strict=True))
     return total % 89 == 0
