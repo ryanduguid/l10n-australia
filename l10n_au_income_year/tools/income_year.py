@@ -9,7 +9,7 @@ advice.
 
 from __future__ import annotations
 
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 
 
 def _as_date(day: date | datetime) -> date:
@@ -39,9 +39,3 @@ def income_year_label(day: date | datetime) -> str:
 def is_standard_income_year_end(month: int | str, day: int) -> bool:
     """True when the fiscal-year last day is 30 June."""
     return int(month) == 6 and int(day) == 30
-
-
-def next_income_year_start(day: date | datetime) -> date:
-    """The 1 July that begins the income year after the one containing day."""
-    _start, end = income_year_bounds(day)
-    return end + timedelta(days=1)

@@ -8,7 +8,6 @@ from odoo.tests.common import TransactionCase
 from odoo.addons.l10n_au_income_year.tools.income_year import (
     income_year_bounds,
     income_year_label,
-    next_income_year_start,
 )
 
 
@@ -27,7 +26,7 @@ class TestIncomeYear(TransactionCase):
 
     def test_calendar_year_end_sits_in_current_income_year(self):
         self.assertEqual(income_year_label(date(2026, 12, 31)), "2026-27")
-        self.assertEqual(next_income_year_start(date(2026, 12, 31)), date(2027, 7, 1))
+        self.assertEqual(income_year_bounds(date(2026, 12, 31))[1], date(2027, 6, 30))
 
     def test_company_flag_and_helper(self):
         au = self.env.ref("base.au")
