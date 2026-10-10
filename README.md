@@ -10,6 +10,12 @@
 
 <!-- /!\ do not modify above this line -->
 
+**Fork status**
+
+[![Fork code quality](https://app.codacy.com/project/badge/Grade/44fea49836864696bd796f826fa6af10?branch=18.0)](https://app.codacy.com/gh/ryanduguid/l10n-australia/dashboard)
+[![Fork tests](https://github.com/ryanduguid/l10n-australia/actions/workflows/test.yml/badge.svg?branch=18.0)](https://github.com/ryanduguid/l10n-australia/actions/workflows/test.yml)
+[![Fork pre-commit](https://github.com/ryanduguid/l10n-australia/actions/workflows/pre-commit.yml/badge.svg?branch=18.0)](https://github.com/ryanduguid/l10n-australia/actions/workflows/pre-commit.yml)
+
 l10n-australia
 
 <!-- /!\ do not modify below this line -->
