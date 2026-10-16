@@ -10,6 +10,9 @@
 
 <!-- /!\ do not modify above this line -->
 
+The badges above refer to
+[upstream OCA/l10n-australia](https://github.com/OCA/l10n-australia).
+
 **Fork status**
 
 [![Fork code quality](https://app.codacy.com/project/badge/Grade/44fea49836864696bd796f826fa6af10?branch=18.0)](https://app.codacy.com/gh/ryanduguid/l10n-australia/dashboard)
