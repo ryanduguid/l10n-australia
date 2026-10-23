@@ -6,7 +6,6 @@
 [![Pre-commit Status](https://img.shields.io/github/actions/workflow/status/OCA/l10n-australia/pre-commit.yml?branch=18.0&label=pre-commit&style=flat&labelColor=000000)](https://github.com/OCA/l10n-australia/actions/workflows/pre-commit.yml?query=branch%3A18.0)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/OCA/l10n-australia/test.yml?branch=18.0&label=tests&style=flat&labelColor=000000)](https://github.com/OCA/l10n-australia/actions/workflows/test.yml?query=branch%3A18.0)
 [![codecov](https://img.shields.io/codecov/c/github/OCA/l10n-australia/18.0?style=flat&labelColor=000000)](https://codecov.io/gh/OCA/l10n-australia)
-[![Translation Status](https://translation.odoo-community.org/widgets/l10n-australia-18-0/-/svg-badge.svg)](https://translation.odoo-community.org/engage/l10n-australia-18-0/?utm_source=widget)
 
 <!-- /!\ do not modify above this line -->
 
