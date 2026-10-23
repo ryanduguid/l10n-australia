@@ -13,11 +13,13 @@
 The badges above refer to
 [upstream OCA/l10n-australia](https://github.com/OCA/l10n-australia).
 
+<div align="center">
+
 **Fork status**
 
-[![Fork code quality](https://img.shields.io/codacy/grade/44fea49836864696bd796f826fa6af10/18.0?style=flat&labelColor=000000)](https://app.codacy.com/gh/ryanduguid/l10n-australia/dashboard)
-[![Fork tests](https://img.shields.io/github/actions/workflow/status/ryanduguid/l10n-australia/test.yml?branch=18.0&label=tests&style=flat&labelColor=000000)](https://github.com/ryanduguid/l10n-australia/actions/workflows/test.yml)
-[![Fork pre-commit](https://img.shields.io/github/actions/workflow/status/ryanduguid/l10n-australia/pre-commit.yml?branch=18.0&label=pre-commit&style=flat&labelColor=000000)](https://github.com/ryanduguid/l10n-australia/actions/workflows/pre-commit.yml)
+[![Fork code quality](https://img.shields.io/codacy/grade/44fea49836864696bd796f826fa6af10/18.0?style=flat&labelColor=000000)](https://app.codacy.com/gh/ryanduguid/l10n-australia/dashboard) [![Fork tests](https://img.shields.io/github/actions/workflow/status/ryanduguid/l10n-australia/test.yml?branch=18.0&label=tests&style=flat&labelColor=000000)](https://github.com/ryanduguid/l10n-australia/actions/workflows/test.yml) [![Fork pre-commit](https://img.shields.io/github/actions/workflow/status/ryanduguid/l10n-australia/pre-commit.yml?branch=18.0&label=pre-commit&style=flat&labelColor=000000)](https://github.com/ryanduguid/l10n-australia/actions/workflows/pre-commit.yml)
+
+</div>
 
 l10n-australia
 
