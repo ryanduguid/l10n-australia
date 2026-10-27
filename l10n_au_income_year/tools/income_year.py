@@ -5,6 +5,10 @@
 Substituted accounting periods exist. This helper is the standard year
 only. It is not FBT year (1 April – 31 March) and it is not lodgment
 advice.
+
+The helpers take a local ``date``. Odoo datetimes are naive UTC, so
+their date part can be the previous day in Australia; convert them to
+the user's timezone first, as ``res.company.l10n_au_income_year`` does.
 """
 
 from __future__ import annotations
@@ -12,13 +16,16 @@ from __future__ import annotations
 from datetime import date, datetime
 
 
-def _as_date(day: date | datetime) -> date:
+def _as_date(day: date) -> date:
     if isinstance(day, datetime):
-        return day.date()
+        raise TypeError(
+            "Expected a local date, not a datetime; convert it to the "
+            "user's timezone first."
+        )
     return day
 
 
-def income_year_bounds(day: date | datetime) -> tuple[date, date]:
+def income_year_bounds(day: date) -> tuple[date, date]:
     """Return (start, end) of the standard AU income year containing day."""
     current = _as_date(day)
     if current.month > 6:
@@ -30,7 +37,7 @@ def income_year_bounds(day: date | datetime) -> tuple[date, date]:
     return start, end
 
 
-def income_year_label(day: date | datetime) -> str:
+def income_year_label(day: date) -> str:
     """Return 'YYYY-YY', e.g. 1 July 2026 → '2026-27'."""
     start, _end = income_year_bounds(day)
     return f"{start.year}-{str(start.year + 1)[-2:]}"

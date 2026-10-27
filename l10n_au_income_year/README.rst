@@ -40,8 +40,8 @@ whether a company is on the standard year at all, so other AU addons
 have one place to ask rather than recomputing the dates.
 
 This is the standard income year only. It is not the FBT year (1 April
-to 31 March) and it is not a substituted accounting period. PASS on the
-flag is not lodgment or close approval.
+to 31 March) and it is not a substituted accounting period. A True flag
+is not lodgment or year-end close approval.
 
 **Table of contents**
 
@@ -55,6 +55,10 @@ On ``res.company``, ``l10n_au_income_year(date)`` returns ``date_from``,
 ``date_to`` and ``label`` (``2026-27``) for the standard Australian
 income year containing that date. It returns the standard year even when
 the company is on a substituted accounting period.
+
+Pass a date, or a datetime as Odoo stores it (UTC). A datetime is
+converted to the user's timezone before its date is taken, so 30 June
+15:30 UTC (1 July in Sydney) falls in ``2026-27``.
 
 ``l10n_au_standard_income_year`` is True when the company's fiscal
 country is Australia and its fiscal year ends 30 June, which is what

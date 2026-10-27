@@ -6,5 +6,5 @@ whether a company is on the standard year at all, so other AU addons
 have one place to ask rather than recomputing the dates.
 
 This is the standard income year only. It is not the FBT year (1 April
-to 31 March) and it is not a substituted accounting period. PASS on the
-flag is not lodgment or close approval.
+to 31 March) and it is not a substituted accounting period. A True
+flag is not lodgment or year-end close approval.

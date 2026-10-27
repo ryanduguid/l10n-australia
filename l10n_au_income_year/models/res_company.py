@@ -1,6 +1,8 @@
 # Copyright 2026 Ryan Duguid
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
+from datetime import datetime
+
 from odoo import api, fields, models
 
 from ..tools.income_year import (
@@ -42,12 +44,19 @@ class ResCompany(models.Model):
     def l10n_au_income_year(self, day=None):
         """Return start, end, and label for the standard AU income year.
 
-        ``day`` defaults to today. The result is the 1 July–30 June year
+        ``day`` defaults to today. A datetime is read as Odoo's naive UTC
+        and converted to the context's ``tz`` (the user's timezone by
+        default) before taking its date. The result is the 1 July–30 June year
         containing that date, even if this company uses a substituted
         accounting period.
         """
         self.ensure_one()
-        current = fields.Date.context_today(self) if day is None else day
+        if day is None:
+            current = fields.Date.context_today(self)
+        elif isinstance(day, datetime):
+            current = fields.Datetime.context_timestamp(self, day).date()
+        else:
+            current = day
         start, end = income_year_bounds(current)
         return {
             "date_from": start,
