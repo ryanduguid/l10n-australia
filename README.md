@@ -20,6 +20,8 @@ The badges above refer to
 
 </div>
 
+ryanduguid/l10n-australia is [Ryan Duguid](https://duguid.com.au/)'s Odoo 18.0 fork of [OCA/l10n-australia](https://github.com/OCA/l10n-australia), adding CI changes only (an attribution workflow, pinned actions and an ESLint jsdoc binding) for maintainers of this fork. The Odoo modules are unchanged.
+
 GitHub Actions is off for this fork, so `test.yml` and `pre-commit.yml` do not run on GitHub. Run their steps locally before merging.
 
 l10n-australia
